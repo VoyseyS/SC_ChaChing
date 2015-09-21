@@ -1,0 +1,17 @@
+##      Interface: 60200
+##
+##          Title: SC_ChaChing
+##
+##          Notes: Plays the old style cha-ching sound every time an auction sells|n Also plays sounds on Expired, Removed and Outbid.
+##
+##         Author: Shaun Voysey
+##
+##       Based on: SC_ChaChing by Karin of the 'Sleeper Cartel' - Perenolde server
+##
+##        version: 6.2.0
+##
+##       Modified: 1st July, 2015
+##
+## SavedVariables: SC_ChaChing_Config
+
+SC_ChaChing.xml

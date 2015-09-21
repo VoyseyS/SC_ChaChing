@@ -136,10 +136,10 @@ function SC_ChaChing_Initialise()
 
         SC_ChaChing_Config[realm].Sound = "CashRegister.mp3";
 
-        SC_ChaChing_Config[realm].Sold = 1;
-        SC_ChaChing_Config[realm].Expired = 0;
-        SC_ChaChing_Config[realm].Outbid = 0;
-        SC_ChaChing_Config[realm].Removed = 0;
+        SC_ChaChing_Config[realm].Sold = true;
+        SC_ChaChing_Config[realm].Expired = false;
+        SC_ChaChing_Config[realm].Outbid = false;
+        SC_ChaChing_Config[realm].Removed = false;
     end;
 
     -- Set the default Sound if the Variable does not exist

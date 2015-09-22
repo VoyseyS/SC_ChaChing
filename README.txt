@@ -4,9 +4,9 @@ SC_ChaChing
 
      Based on:	SC_ChaChing by Karin of the Sleeper Cartel - Perenolde server
     
-      Version:	6.2.0
+      Version:	6.2.1
     
-  Modified On:	1st July, 2015
+  Modified On:	21st September, 2015
 
         Notes:	The Author has been changed because this is So significantly different to
 		the 'Sleeper Cartel' Version, that the only original things are 2 function

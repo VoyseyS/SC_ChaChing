@@ -5,13 +5,14 @@
 
      Based on:	SC_ChaChing by Karin of the 'Sleeper Cartel' - Perenolde server
 
-      Version:	6.2.0
+      Version:	6.2.1
 
-  Modified on:	1st July, 2015
+  Modified on:	21st September, 2015
 -->
 
-<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
-..\FrameXML\UI.xsd">
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
 
 	<Script file="Localisation.lua"/>
 	<Script file="SC_ChaChing.lua"/>
@@ -110,21 +111,21 @@
 				</Anchors>
 			</Frame>
 
-            <Button name="$parent_Play" inherits="OptionsButtonTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativeTo="SC_ChaChingSoundDropDown">
-                        <Offset>
-                            <AbsDimension x="200" y="0"/>
-                        </Offset>
-                    </Anchor>
-                </Anchors>
-                <Scripts>
-                    <OnClick>
-                        SC_ChaChing_Sound(UIDropDownMenu_GetText(SC_ChaChingSoundDropDown), true);
-                    </OnClick>
-                </Scripts>
-            </Button>
+			<Button name="$parent_Play" inherits="OptionsButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="SC_ChaChingSoundDropDown">
+						<Offset>
+							<AbsDimension x="200" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
 
+				<Scripts>
+					<OnClick>
+						SC_ChaChing_Sound(UIDropDownMenu_GetText(SC_ChaChingSoundDropDown), true);
+					</OnClick>
+				</Scripts>
+			</Button>
 		</Frames>
 
 		<Scripts>

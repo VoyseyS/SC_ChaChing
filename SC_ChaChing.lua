@@ -5,11 +5,13 @@
 
      Based on:	SC_ChaChing by Karin of the 'Sleeper Cartel' - Perenolde server
 
-      Version:	6.2.0
+      Version:	6.2.1
 
-  Modified On:	1st July, 2015
+  Modified On:	21st September, 2015
 
         Notes:
+
+	6.2.1	Update defaults to true/false - Keep in line with the changes to getChecked/setChecked.
 
 	6.2.0	toc upgrade for 6.2.
 

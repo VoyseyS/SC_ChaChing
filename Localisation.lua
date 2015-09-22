@@ -5,9 +5,9 @@
 
      Based on:	SC_ChaChing by Karin of the 'Sleeper Cartel' - Perenolde serve
 
-      Version:	6.2.0
+      Version:	6.2.1
 
-  Modified On:	1st July, 2015
+  Modified On:	21st Seprember, 2015
 ]]--
 
 -- Too many of the same addons with just a different Sound

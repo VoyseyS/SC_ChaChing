@@ -1,4 +1,4 @@
-##      Interface: 60200
+##      Interface: 90000
 ##
 ##          Title: SC_ChaChing
 ##
@@ -8,10 +8,18 @@
 ##
 ##       Based on: SC_ChaChing by Karin of the 'Sleeper Cartel' - Perenolde server
 ##
-##        version: 6.2.0
+##        Version: 9.0.0
 ##
-##       Modified: 1st July, 2015
+##       Modified: 4th September, 2020
+##
+## Dependencies:
+##
+## OptionalDeps:   LibStub, LibUIDropDownMenu
 ##
 ## SavedVariables: SC_ChaChing_Config
 
+Libs\Libs.xml
+
 SC_ChaChing.xml
+
+

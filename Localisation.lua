@@ -5,9 +5,9 @@
 
      Based on:	SC_ChaChing by Karin of the 'Sleeper Cartel' - Perenolde serve
 
-      Version:	6.2.1
+      Version:	8.2.0
 
-  Modified On:	21st Seprember, 2015
+  Modified On:	26th June, 2019
 ]]--
 
 -- Too many of the same addons with just a different Sound
@@ -20,7 +20,6 @@
 		"Bazinga.mp3",
 		"YouHaveMail.mp3"
 		}
-
 
 -- Localisation String variable 
 --

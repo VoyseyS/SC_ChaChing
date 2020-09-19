@@ -5,11 +5,21 @@
 
      Based on:	SC_ChaChing by Karin of the 'Sleeper Cartel' - Perenolde server
 
-      Version:	6.2.1
+      Version:	9.0.0
 
-  Modified On:	21st September, 2015
+  Modified On:	4th September, 2020
 
         Notes:
+
+	9.0.0	toc upgrade for 9.0. also fixed the Backdrop issue.
+
+	8.2.0	toc upgrade for 8.2.
+
+	8.0.1	toc upgrade for 8.0.
+
+	7.3.0	toc upgrade for 7.3.
+
+		Also included LibUIDropDownMenu, to hopefully remove the rare but possible taint.
 
 	6.2.1	Update defaults to true/false - Keep in line with the changes to getChecked/setChecked.
 
@@ -62,7 +72,7 @@ function SC_ChaChingPanel_Close()
     SC_ChaChing_Config[realm].Outbid = SC_ChaChingGUIFrame_CBOutbid:GetChecked();
     SC_ChaChing_Config[realm].Removed = SC_ChaChingGUIFrame_CBRemoved:GetChecked();
 
-    SC_ChaChing_Config[realm].Sound = UIDropDownMenu_GetText(SC_ChaChingSoundDropDown);
+    SC_ChaChing_Config[realm].Sound = L_UIDropDownMenu_GetText(SC_ChaChingSoundDropDown);
 end
 
 
@@ -75,7 +85,7 @@ function SC_ChaChingPanel_CancelOrLoad()
     SC_ChaChingGUIFrame_CBOutbid:SetChecked(SC_ChaChing_Config[realm].Outbid);
     SC_ChaChingGUIFrame_CBRemoved:SetChecked(SC_ChaChing_Config[realm].Removed);
 
-	UIDropDownMenu_SetText(SC_ChaChingSoundDropDown, SC_ChaChing_Config[realm].Sound);
+    L_UIDropDownMenu_SetText(SC_ChaChingSoundDropDown, SC_ChaChing_Config[realm].Sound);
 end
 
 
@@ -124,7 +134,6 @@ function SC_ChaChing_Initialise()
         return;
     end
 
-
     -- initialise Realm data structures
     --
     if (SC_ChaChing_Config == nil) then
@@ -135,8 +144,6 @@ function SC_ChaChing_Initialise()
     --
     if (SC_ChaChing_Config[realm] == nil) then
         SC_ChaChing_Config[realm] = { };
-
-        SC_ChaChing_Config[realm].Sound = "CashRegister.mp3";
 
         SC_ChaChing_Config[realm].Sold = true;
         SC_ChaChing_Config[realm].Expired = false;
@@ -154,16 +161,16 @@ function SC_ChaChing_Initialise()
 
     -- Creates and initialises the DropDown frame
     --
-	CreateFrame("Frame", "SC_ChaChingSoundDropDown", SC_ChaChingGUIFrame, "UIDropDownMenuTemplate");
+--  CreateFrame("Frame", "SC_ChaChingSoundDropDown", SC_ChaChingGUIFrame, "L_UIDropDownMenuTemplate");
+    f = L_Create_UIDropDownMenu("SC_ChaChingSoundDropDown", parent, "L_UIDropDownMenuTemplate");
 
-	UIDropDownMenu_Initialize(SC_ChaChingSoundDropDown, SC_ChaChingSoundDropDown_Init);
+    L_UIDropDownMenu_Initialize(SC_ChaChingSoundDropDown, SC_ChaChingSoundDropDown_Init);
 
-	UIDropDownMenu_JustifyText(SC_ChaChingSoundDropDown, "LEFT");
-	UIDropDownMenu_SetWidth(SC_ChaChingSoundDropDown, 150);
-	UIDropDownMenu_SetText(SC_ChaChingSoundDropDown, SC_ChaChing_Config[realm].Sound);
+    L_UIDropDownMenu_JustifyText(SC_ChaChingSoundDropDown, "LEFT");
+    L_UIDropDownMenu_SetWidth(SC_ChaChingSoundDropDown, 150);
+    L_UIDropDownMenu_SetText(SC_ChaChingSoundDropDown, SC_ChaChing_Config[realm].Sound);
 
-	SC_ChaChingSoundDropDown:Show();
-
+    SC_ChaChingSoundDropDown:Show();
 
     -- Set variable to say we have been through this.
     --
@@ -175,30 +182,32 @@ end
 --
 function SC_ChaChingSoundDropDown_Init(self)
 
-	-- Gets the current text in the DropDown frame
-	--
-	local ddtext = UIDropDownMenu_GetText(SC_ChaChingSoundDropDown);
+    -- Gets the current text in the DropDown frame
+    --
+    local ddtext = L_UIDropDownMenu_GetText(SC_ChaChingSoundDropDown);
 
-	local info = UIDropDownMenu_CreateInfo();
+    for index, filename in ipairs(SC_ChaChingSound) do
+        local info = L_UIDropDownMenu_CreateInfo();
 
-	for index, filename in ipairs(SC_ChaChingSound) do
-		info.text = filename;
+        info.text = filename;
 
-		-- Give it a tick instead of a radio button, and only tick when selected
-		--
-		info.isNotRadio = true;
-		info.checked = (filename == ddtext);
+        -- Give it a tick instead of a radio button, and only tick when selected
+        --
+        info.isNotRadio = true;
+        info.arg1 = index
 
-		-- Function to be called when the menu option is selected
-		--
-		info.func = function (self)
-			-- Sets the text of the DropDown frame
-			--
-			UIDropDownMenu_SetText(SC_ChaChingSoundDropDown, self:GetText());
-		end
+        info.checked = (filename == ddtext);
 
-		UIDropDownMenu_AddButton(info);
-	end
+        -- Function to be called when the menu option is selected
+        --
+        info.func = function (self)
+            -- Sets the text of the DropDown frame
+            --
+            L_UIDropDownMenu_SetText(SC_ChaChingSoundDropDown, self:GetText());
+        end
+
+        L_UIDropDownMenu_AddButton(info);
+    end
 end
 
 
@@ -254,7 +263,7 @@ end
 function SC_ChaChing_Sound(SoundFile, PlaySound)
     local TempTime = GetTime();
 
-    -- Only play if the last sound played over 1 second a go.  Really annoying.
+    -- Only play if the last sound played over 1 second a go.  Really annoying otherwise.
     --
     if (PlaySound and (TempTime - SC_ChaChing_Time) > 1) then
         SC_ChaChing_Time = TempTime;

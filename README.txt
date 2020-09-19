@@ -4,13 +4,13 @@ SC_ChaChing
 
      Based on:	SC_ChaChing by Karin of the Sleeper Cartel - Perenolde server
     
-      Version:	6.2.1
-    
-  Modified On:	21st September, 2015
+      Version:	8.2.0
+
+  Modified On:	30th June, 2019
 
         Notes:	The Author has been changed because this is So significantly different to
-		the 'Sleeper Cartel' Version, that the only original things are 2 function
-		names, the ChaChing Sound file, and the layout of this readme. :)
+			the 'Sleeper Cartel' Version, that the only original things are 2 function
+			names, the ChaChing Sound file, and the layout of this readme. :)
 
 ------------
 INTRODUCTION

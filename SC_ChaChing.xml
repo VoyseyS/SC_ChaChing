@@ -1,137 +1,143 @@
 <!--
-     Filename:	SC_ChaChing.xml
+     Filename:    SC_ChaChing.xml
 
-       Author:	Shaun Voysey
+       Author:    Shaun Voysey
 
-     Based on:	SC_ChaChing by Karin of the 'Sleeper Cartel' - Perenolde server
+     Based on:    SC_ChaChing by Karin of the 'Sleeper Cartel' - Perenolde server
 
-      Version:	6.2.1
+      Version:    9.0.0
 
-  Modified on:	21st September, 2015
+  Modified On:    4th September, 2020
 -->
 
 <Ui xmlns="http://www.blizzard.com/wow/ui/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
 
-	<Script file="Localisation.lua"/>
-	<Script file="SC_ChaChing.lua"/>
+    <Script file="Localisation.lua"/>
+    <Script file="SC_ChaChing.lua"/>
 
-	<Frame name="SC_ChaChing" parent="UIParent">
-		<Scripts>
-			<OnLoad>
-				SC_ChaChing_OnLoad(self);	
-			</OnLoad>
+    <Frame name="SC_ChaChing" parent="UIParent">
+        <Scripts>
+            <OnLoad>
+                SC_ChaChing_OnLoad(self);    
+            </OnLoad>
 
-			<OnEvent>
-				SC_ChaChing_OnEvent(self, event, ...);
-			</OnEvent>
-		</Scripts>
-	</Frame>
+            <OnEvent>
+                SC_ChaChing_OnEvent(self, event, ...);
+            </OnEvent>
+        </Scripts>
+    </Frame>
 
-	<Frame name="SC_ChaChingGUIFrame">
-		<Layers>
-			<Layer level="ARTWORK">
-				<FontString name="$parent_Head" inherits="GameFontNormalLarge" text="SC_ChaChing">
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="15" y="-15" />
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</FontString>
-			</Layer>
-		</Layers>
+    <Frame name="SC_ChaChingGUIFrame">
+        <Layers>
+            <Layer level="ARTWORK">
+                <FontString name="$parent_Head" inherits="GameFontNormalLarge" text="SC_ChaChing">
+                    <Anchors>
+                        <Anchor point="TOPLEFT">
+                            <Offset>
+                                <AbsDimension x="15" y="-15" />
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
 
-		<Frames>
-			<CheckButton name="$parent_CBSold" inherits="UICheckButtonTemplate">
-				<Size>
-					<AbsDimension x="32" y="32"/>
-				</Size>
+        <Frames>
+            <CheckButton name="$parent_CBSold" inherits="UICheckButtonTemplate">
+                <Size>
+                    <AbsDimension x="32" y="32"/>
+                </Size>
 
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parent_Head">
-						<Offset>
-							<AbsDimension x="25" y="-40"/>
-						</Offset>
-					</Anchor>
-				</Anchors>      
-			</CheckButton>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_Head">
+                        <Offset>
+                            <AbsDimension x="25" y="-40"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>      
+            </CheckButton>
 
-			<CheckButton name="$parent_CBExpired" inherits="UICheckButtonTemplate">
-				<Size>
-					<AbsDimension x="32" y="32"/>
-				</Size>
+            <CheckButton name="$parent_CBExpired" inherits="UICheckButtonTemplate">
+                <Size>
+                    <AbsDimension x="32" y="32"/>
+                </Size>
 
-				<Anchors>
-					<Anchor point="BOTTOMLEFT" relativeTo="$parent_CBSold">
-						<Offset>
-							<AbsDimension x="0" y="-40"/>
-						</Offset>
-					</Anchor>
-				</Anchors>      
-			</CheckButton>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativeTo="$parent_CBSold">
+                        <Offset>
+                            <AbsDimension x="0" y="-40"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>      
+            </CheckButton>
 
-			<CheckButton name="$parent_CBOutbid" inherits="UICheckButtonTemplate">
-				<Size>
-					<AbsDimension x="32" y="32"/>
-				</Size>
+            <CheckButton name="$parent_CBOutbid" inherits="UICheckButtonTemplate">
+                <Size>
+                    <AbsDimension x="32" y="32"/>
+                </Size>
 
-				<Anchors>
-					<Anchor point="BOTTOMLEFT" relativeTo="$parent_CBExpired">
-						<Offset>
-							<AbsDimension x="0" y="-40"/>
-						</Offset>
-					</Anchor>
-				</Anchors>      
-			</CheckButton>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativeTo="$parent_CBExpired">
+                        <Offset>
+                            <AbsDimension x="0" y="-40"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>      
+            </CheckButton>
 
-			<CheckButton name="$parent_CBRemoved" inherits="UICheckButtonTemplate">
-				<Size>
-					<AbsDimension x="32" y="32"/>
-				</Size>
+            <CheckButton name="$parent_CBRemoved" inherits="UICheckButtonTemplate">
+                <Size>
+                    <AbsDimension x="32" y="32"/>
+                </Size>
 
-				<Anchors>
-					<Anchor point="BOTTOMLEFT" relativeTo="$parent_CBOutbid">
-						<Offset>
-							<AbsDimension x="0" y="-40"/>
-						</Offset>
-					</Anchor>
-				</Anchors>      
-			</CheckButton>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativeTo="$parent_CBOutbid">
+                        <Offset>
+                            <AbsDimension x="0" y="-40"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>      
+            </CheckButton>
 
-			<Frame name="SC_ChaChingSoundDropDown" inherits="UIDropDownMenuTemplate" id="1">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parent_CBSold">
-						<Offset>
-							<AbsDimension x="200" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</Frame>
+            <Frame name="SC_ChaChingSoundDropDown" inherits="L_UIDropDownMenuTemplate" id="1">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_CBSold">
+                        <Offset>
+                            <AbsDimension x="200" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+            </Frame>
 
-			<Button name="$parent_Play" inherits="OptionsButtonTemplate">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="SC_ChaChingSoundDropDown">
-						<Offset>
-							<AbsDimension x="200" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
+            <Button name="$parent_Play" inherits="OptionsButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="SC_ChaChingSoundDropDown">
+                        <Offset>
+                            <AbsDimension x="200" y="0" />
+                        </Offset>
+                    </Anchor>
+                </Anchors>
 
-				<Scripts>
-					<OnClick>
-						SC_ChaChing_Sound(UIDropDownMenu_GetText(SC_ChaChingSoundDropDown), true);
-					</OnClick>
-				</Scripts>
-			</Button>
-		</Frames>
+                <Scripts>
+                    <OnClick>
+                        SC_ChaChing_Sound(L_UIDropDownMenu_GetText(SC_ChaChingSoundDropDown), true);
+                    </OnClick>
+                </Scripts>
+            </Button>
+        </Frames>
 
-		<Scripts>
-			<OnLoad>
-				SC_ChaChingPanel_OnLoad(self);
-			</OnLoad>
-		</Scripts>
-	</Frame>
+        <Scripts>
+            <OnLoad>
+                local f = L_Create_UIDropDownMenu("SC_ChaChingSoundDropDown", self);
+--                  f:SetSize(1,2);
+                  f:SetPoint("TOPLEFT", 220, -55);  -- SC_ChaChing, "$parent_CBSold", 
+                  f:SetID(1);
+
+                SC_ChaChingPanel_OnLoad(self);
+
+            </OnLoad>
+        </Scripts>
+    </Frame>
 </Ui>
